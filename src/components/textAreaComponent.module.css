@@ -1,0 +1,41 @@
+.container {
+  margin: calc(var(--main-margin) / 2) 0;
+  flex-direction: column;
+  text-align: left;
+  display: flex;
+}
+
+.label {
+  color: var(--text-light);
+  font-weight: normal;
+}
+
+.textArea {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  margin: calc(var(--main-margin) / 3) 0;
+  border: 1px solid var(--blue-200);
+  padding: var(--main-padding);
+  border-radius: var(--radius);
+  font-size: var(--text-sm);
+  resize: vertical;
+  outline: 0 none;
+  height: 150px;
+}
+
+.textArea:focus {
+  transition: all var(--speed);
+  box-shadow: var(--shadow);
+  font-weight: bold;
+  outline: none;
+}
+.label::after {
+  content: '*';
+  color: red;
+  font-size: var(--text-xs);
+  margin-left: calc(var(--main-margin) / 3);
+}
+
+.error {
+  font-size: var(--text-xs);
+  color: red;
+}

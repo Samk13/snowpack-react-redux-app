@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 50vw;
+  margin: auto;
+}
+
+.fromContainer,
+.articlesContainer {
+  background-color: var(--gray-200);
+  margin: var(--main-margin) 0;
+  border-radius: var(--radius);
+  padding: var(--main-padding);
+  flex-direction: column;
+  text-align: left;
+  display: flex;
+}
+.title {
+  color: var(--text-dark);
+  font-size: xx-large;
+  text-align: left;
+}
+
+.article {
+  margin: 1em auto;
+}
+
+.createTitle,
+.articlesTitle {
+  padding: var(--main-padding);
+  text-transform: capitalize;
+  color: var(--text-dark);
+  font-size: large;
+  text-align: left;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    max-width: 90%;
+  }
+}

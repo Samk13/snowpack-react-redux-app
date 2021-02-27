@@ -1,0 +1,106 @@
+.articleContainer {
+  background-color: var(--gray-200);
+  border-radius: var(--radius);
+  /* max-width: 70vw; */
+  font-size: var(--text-xs);
+  display: grid;
+  /* grid-template-columns: repeat(2, auto); */
+  grid-template-columns: min-content auto;
+  width: 100%;
+  grid-column-gap: 2px;
+  grid-row-gap: 0px;
+  grid-auto-columns: min-content;
+}
+
+.articleContainer:hover {
+  grid-area: text;
+  column-span: 3;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+}
+
+.image {
+  background-size: contain;
+  border-radius: var(--radius) 0 0 var(--radius);
+  object-fit: cover;
+  /* max-width: minmax(100%, 200px); */
+  width: 200px;
+  height: 100%;
+  aspect-ratio: 1/1;
+}
+
+.textContainer {
+  margin: 0 0 0 1em;
+  padding: 0 1em 1em 0;
+  text-align: left;
+  justify-content: start;
+}
+.textContainer > h1 {
+  font-size: var(--text-lg);
+  margin: 1em 0;
+}
+
+.articleFooter {
+  margin: 20px 0 0 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .articleContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  .image {
+    width: 100%;
+    border-radius: var(--radius) 0 0 0;
+  }
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  margin: var(--main-margin) 0;
+}
+.input {
+  margin: var(--main-padding) 0;
+  padding: calc(var(--main-padding) / 3);
+  border: 1px solid var(--blue-200);
+  border-radius: var(--radius);
+  outline: 0 none;
+  font-weight: bold;
+  font-size: var(--text-base);
+}
+
+.textAreaComponent {
+  padding: var(--main-padding);
+  border: 1px solid var(--blue-200);
+  border-radius: var(--radius);
+  outline: 0 none;
+  resize: vertical;
+  height: 150px;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-size: var(--text-sm);
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btnCard {
+  padding: calc(var(--main-padding) / 2) var(--main-padding);
+  background-color: var(--text-light);
+  color: var(--gray-50);
+  border: 1px solid var(--blue-200);
+  border-radius: var(--radius);
+  transition: filter var(--speed);
+  cursor: pointer;
+}
+
+.btnCard:hover {
+  filter: brightness(1.2);
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+}

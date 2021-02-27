@@ -1,0 +1,23 @@
+.btn {
+  border: 1px solid var(--gray-200);
+  background-color: var(--blue-200);
+  border-radius: var(--radius);
+  padding: var(--main-padding);
+  text-transform: capitalize;
+  transition: all var(--speed);
+  color: var(--text-dark);
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.btn:hover {
+  border: 1px solid var(--blue-200);
+  box-shadow: var(--shadow);
+  filter: brightness(1.1);
+}
+
+.btn:focus {
+  transition: all var(--speed);
+  box-shadow: var(--shadow);
+  outline: none;
+}

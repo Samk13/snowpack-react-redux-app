@@ -1,0 +1,38 @@
+.inputBody {
+  margin: calc(var(--main-margin) / 2) 0;
+  flex-direction: column;
+  text-align: left;
+  display: flex;
+}
+
+.label {
+  color: var(--text-light);
+  font-weight: normal;
+}
+
+.label::after {
+  content: '*';
+  color: red;
+  font-size: var(--text-xs);
+  margin-left: calc(var(--main-margin) / 3);
+}
+
+.error {
+  font-size: var(--text-xs);
+  color: red;
+}
+
+.input {
+  margin: calc(var(--main-margin) / 3) 0;
+  border: 1px solid var(--blue-200);
+  border-radius: var(--radius);
+  padding: var(--main-padding);
+  font-weight: lighter;
+}
+
+.input:focus {
+  transition: all var(--speed);
+  box-shadow: var(--shadow);
+  font-weight: bold;
+  outline: none;
+}

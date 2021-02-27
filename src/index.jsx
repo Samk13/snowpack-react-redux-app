@@ -1,13 +1,15 @@
-import React, { lazy, Suspense } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
-// import App from './App.jsx'
-const AppComponent = lazy(() => import('./App.jsx'))
-const renderLoader = () => <p>Loading</p>
+import App from './App.jsx'
+import store from './app/store'
+import './index.css'
+import { Provider } from 'react-redux'
+
 ReactDOM.render(
   <React.StrictMode>
-    <Suspense fallback={renderLoader()}>
-      <AppComponent />
-    </Suspense>
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 )

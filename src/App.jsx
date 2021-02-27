@@ -1,25 +1,55 @@
-import React, { useState, useEffect } from 'react'
+import React, { lazy, Suspense } from 'react'
 import logo from './logo.svg'
-import './App.css'
+// import { FooterComponent, HeaderComponent, SidebarComponent, LoadingItem } from './components'
+import FooterComponent from './components/FooterComponent'
+import HeaderComponent from './components/HeaderComponent'
+import SidebarComponent from './components/SidebarComponent'
+import LoadingItem from './components/LoadingItem'
+import styles from './App.module.css'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import routes from './router/routes.js'
+import { useSelector } from 'react-redux'
+import { menuStatus } from './features/menu/menuSlice'
+import Articles from './features/articles/Articles'
+import Posts from './features/posts/Posts.jsx'
 
 function App() {
-  // Create the count state.
-  const [count, setCount] = useState(0)
-  // Update the count (+1 every second).
-  useEffect(() => {
-    const timer = setTimeout(() => setCount(count + 1), 1000)
-    return () => clearTimeout(timer)
-  }, [count, setCount])
-  // Return the App component.
+  const renderLoader = () => <LoadingItem />
+  const menuActive = useSelector(menuStatus)
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Page has been open for 😎<code>{count}</code> seconds.
-        </p>
-        <img src={logo} className="App-logo" alt="logo" />
+    <Router>
+    <section className={menuActive ? styles.container : styles.container_hide_sidebar}>
+      <header className={styles.header}>
+        <HeaderComponent />
       </header>
-    </div>
+      <main className={styles.main}>
+        <Switch>
+          <Suspense fallback={renderLoader()}>
+            <Route path="/" exact>
+              <Articles />
+            </Route>
+            <Route path="/posts">
+              <Posts />
+            </Route>
+            {/* {routes.map((route, key) => {
+              return (
+                <Route
+                  key={key}
+                  path={route.path}
+                  exact={route.exact}
+                  component={lazy(() => import(`${route.location}`))}
+                />
+              )
+            })} */}
+          </Suspense>
+        </Switch>
+      </main>
+      {menuActive && <SidebarComponent />}
+      <footer className={styles.footer}>
+        <FooterComponent className={styles.footer} />
+      </footer>
+    </section>
+  </Router>
   )
 }
 

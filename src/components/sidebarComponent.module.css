@@ -1,0 +1,26 @@
+.aside {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  grid-area: sidebar;
+  background-color: var(--gray-200);
+  border-left: solid 2px rgba(189, 189, 189, 0.205);
+}
+
+.link {
+  color: var(--text-dark);
+  font-size: var(--text-sm);
+
+  padding: var(--main-padding);
+}
+
+.active {
+  color: var(--text-dark);
+  border-left: solid 5px var(--blue-200);
+  font-weight: bold;
+}
+
+.link:hover {
+  color: var(--gray-300);
+  /* filter: brightness(1.2); */
+}
