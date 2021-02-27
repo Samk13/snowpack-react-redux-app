@@ -1,18 +1,35 @@
 {
   "scripts": {
-    "start": "snowpack dev",
-    "build": "snowpack build",
-    "prettier": "prettier --check .",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "prettier:fix": "npx prettier --write .",
-    "test": "echo \"This template does not include a test runner by default.\" && exit 1"
+    "prettier": "prettier --check .",
+    "build": "snowpack build",
+    "start": "snowpack dev"
   },
   "devDependencies": {
     "@snowpack/plugin-react-refresh": "^2.4.0",
-    "prettier": "2.2.1",
+    "eslint": "^7.20.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "husky": "^5.1.1",
+    "lint": "eslint ./",
+    "lint-staged": "^10.5.4",
+    "lint:fix": "eslint ./ --fix",
+    "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0",
     "snowpack": "^3.0.1"
   },
   "dependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
+  },
+  "lint-staged": {
+    "*.js": "eslint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && pretty-quick --staged"
+    }
   }
 }

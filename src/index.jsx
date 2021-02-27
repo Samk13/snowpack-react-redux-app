@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import ReactDOM from 'react-dom'
-import App from './App.jsx'
+// import App from './App.jsx'
+const AppComponent = lazy(() => import('./App.jsx'))
+const renderLoader = () => <p>Loading</p>
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Suspense fallback={renderLoader()}>
+      <AppComponent />
+    </Suspense>
   </React.StrictMode>,
   document.getElementById('root')
 )
